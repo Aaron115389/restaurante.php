@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if(!isset($_SECCION['detalle_pedido'])){
+    $_SECCION['detalle_pedido'] = array();
+}
 $platos = array(
     1 => array("nombre" => "Arroz con Pollo", "precio" => 20),
     2 => array("nombre" => "Lomo Saltado", "precio" => 25),
@@ -20,9 +23,9 @@ $iDplato = $_POST["cbxPlatos"];
 $cantidadPlato = $_POST["txtCantidadPlato"];
 $total = $platos[$iDplato]['precio'] * $cantidadPlato;
 
-$iDbebidas = $_POST["cbxBebidas"];
-$cantidadbebidas = $_POST["txtCantidadBebidas"];
-$totalBebidas = $bebidas[$iDbebidas]['precio'] * $cantidadbebidas;
+$iDbebida = $_POST["cbxBebidas"];
+$cantidadbebida = $_POST["txtCantidadBebidas"];
+$totalBebidas = $bebidas[$iDbebida]['precio'] * $cantidadbebida;
 
 //echo $platos[$iDplato]['nombre'] . " : " . $cantidadPlato . " x s/. " . $platos[$iDplato]['precio'] . " =  " . $total;
 //echo $bebidas[$iDbebidas]['nombre'] . " : " . $cantidadbebidas . " x s/. " . $bebidas[$iDbebidas]['precio'] . " =  " . $totalBebidas;
@@ -50,7 +53,7 @@ $totalBebidas = $bebidas[$iDbebidas]['precio'] * $cantidadbebidas;
                     <p>Si te estás preguntando cuál es el amor más sincero… Entra y encontrarás la respuesta</p>
                     <p> ¡Cualquier día es perfecto para darte un gusto!</p>
                 </div>
-                <div class="products">
+                <!-- <div class="products">
                     <h3 class="title">Detalle de Pedido</h3>
                     <div class="item">
 
@@ -58,11 +61,63 @@ $totalBebidas = $bebidas[$iDbebidas]['precio'] * $cantidadbebidas;
                             <label for="cantidad-producto">
                                 <?php echo $platos[$iDplato]['nombre'] . " s/." . $platos[$iDplato]['precio'] . " x " . $cantidadPlato ?>
                             </label>
-                            <input id="cantidad-producto" type="text" class="form-control" placeholder="Ingrese la cantidad" aria-label="Ingrese la cantidad" aria-describedby="basic-addon1" name="txtCantidadPlato" value="<?php echo $total; ?>" readonly>
+                            <input id="cantidad-producto" type="text" class="form-control" placeholder="Ingrese la cantidad" aria-label="Ingrese la cantidad" aria-describedby="basic-addon1" name="txtCantidadBebidas" value="<?php echo $total; ?>" readonly>
 
                         </div>
                     </div>
+                    <div class="item">
+
+                        <div class="form-group col-sm-8">
+                            <label for="cantidad-bebida">
+                                <?php echo $bebidas[$iDbebida]['nombre'] . " s/." . $bebidas[$iDbebida]['precio'] . " x " . $cantidadbebida ?>
+                            </label>
+                            <input id="cantidad-bebida" type="text" class="form-control" placeholder="Ingrese la cantidad" aria-label="Ingrese la cantidad" aria-describedby="basic-addon1" name="txtcantidadbebida" value="<?php echo $totalBebidas; ?>" readonly>
+
+                        </div>
+                    </div>
+                </div> -->
+                
+        <div class="card mt-3 p-3">
+            <h4>Detalle de Pedido:</h4>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Sub Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <?php foreach ($_SESSION['detalle_pedido'] as $item) : ?>
+                                    <tr>
+                                        <td><?= $item['nombre'] ?></td>
+                                        <td><?= $item['descripcion'] ?></td>
+                                        <td><?= $item['precio'] ?></td>
+                                        <td><?= $item['cantidad'] ?></td>
+                                        <td><?= $item['subtotal'] ?></td>
+                                    </tr>
+                                <?php endforeach; ?> -->
+                        </tbody>
+                    </table>
                 </div>
+                <div class="row mt-4">
+                    <div class="col-12 text-end">
+                        <!-- <h4>Total: <strong><?= calcularTotal() ?></strong></h4> -->
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <form method="POST" action="">
+                            <button type="submit" name="limpiar_pedido"
+                                class="btn btn-danger btn-block">Limpiar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
             </div>
 
         </section>

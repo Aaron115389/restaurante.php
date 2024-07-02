@@ -11,6 +11,7 @@ include_once './php/productos.php'
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="Js.Js"></script>
     <link rel="stylesheet" href="./css/estilos.css">
 </head>
@@ -47,15 +48,13 @@ include_once './php/productos.php'
                         </div>
                     </div>
                     <div class="products">
-                        <h3 class="title">Bebidas Consumidas</h3>
+                        <h3 class="title">Bebidas</h3>
                         <div class="item">
                             <select class="form-control" name="cbxBebidas">
-                                <option value="1">Coca Cola - S/5</option>
-                                <option value="2">Sprite - S/5</option>
-                                <option value="3">Fanta - S/5</option>
-                                <option value="4">Agua Mineral - S/3</option>
-                                <option value="5">Jugo de Naranja - S/7</option>
-                                <option value="6">Limonada - S/6</option>
+                            <?php foreach ($bebidas as $key  => $bebidas) : ?>
+                                <option value="<?= $key ?>"> <?= $bebidas['nombre'] ?> - s/. <?= $bebidas['precio'] ?>
+                                </option>
+                                <?php endforeach; ?>
                             </select>
                             <p class="item-description">Selecciona una bebida</p>
                             <div class="form-group col-sm-8">
