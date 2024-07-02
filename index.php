@@ -1,3 +1,7 @@
+<?php
+include_once './php/productos.php'
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,16 +25,17 @@
                     <p>Si te estás preguntando cuál es el amor más sincero… Entra y encontrarás la respuesta</p>
                     <p> ¡Cualquier día es perfecto para darte un gusto!</p>
                 </div>
-                <form action="./php/pedido.php" method="post">
+                <form action="./detalle_pedido.php" method="post">
                     <div class="products">
                         <h3 class="title">Platos</h3>
                         <div class="item">
                             <select class="form-control" name="cbxPlatos">
-                                <option value="1">Arroz con Pollo - S/20</option>
-                                <option value="2">Lomo Saltado - S/25</option>
-                                <option value="3">Ceviche - S/30</option>
-                                <option value="4">Pollo a la Brasa - S/35</option>
-                                <option value="5">Tallarines Verdes - S/ 20</option>
+                                <?php foreach ($platos as $key  => $plato) : ?>
+                                <option value="<?= $key ?>"> <?= $plato['nombre'] ?> - s/. <?= $plato['precio'] ?>
+                                </option>
+                                <?php endforeach; ?>
+
+
                             </select>
                             <p class="item-description">Selecciona un producto</p>
                             <div class="form-group col-sm-8">

@@ -1,7 +1,5 @@
 <?php
-// if (isset($_POST['fecha_nacimiento'])) {
 
-// }
 $platos = array(
     1 => array("nombre" => "Arroz con Pollo", "precio" => 20),
     2 => array("nombre" => "Lomo Saltado", "precio" => 25),
@@ -17,6 +15,7 @@ $bebidas = array(
     5 => array("nombre" => "Jugo de Naranja", "precio" => 7),
     6 => array("nombre" => "Limonada", "precio" => 6),
 );
+
 $iDplato = $_POST["cbxPlatos"];
 $cantidadPlato = $_POST["txtCantidadPlato"];
 $total = $platos[$iDplato]['precio'] * $cantidadPlato;
