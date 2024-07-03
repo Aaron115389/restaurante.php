@@ -51,7 +51,7 @@ include_once './php/productos.php'
                         <h3 class="title">Bebidas</h3>
                         <div class="item">
                             <select class="form-control" name="cbxBebidas">
-                            <?php foreach ($bebidas as $key  => $bebidas) : ?>
+                                <?php foreach ($bebidas as $key  => $bebidas) : ?>
                                 <option value="<?= $key ?>"> <?= $bebidas['nombre'] ?> - s/. <?= $bebidas['precio'] ?>
                                 </option>
                                 <?php endforeach; ?>
@@ -65,7 +65,8 @@ include_once './php/productos.php'
                             </div>
                         </div>
                         <h3 class="title">Total</h3>
-                        <button type="submit" class="btn btn-primary btn-block" id="guardar-pedido">Guardar
+                        <button type="submit" class="btn btn-primary btn-block" id="guardar-pedido"
+                            name="btnGuardar">Guardar
                             Pedido</button>
                     </div>
                 </form>
