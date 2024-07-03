@@ -103,12 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['limpiar_pedido'])) {
 
                 <div class="card mt-3 p-3">
                     <h4>Detalle de Pedido:</h4>
-
-                    <div class="col-3 mb-2">
-                        <a href="./index.php" class="btn btn-success btn-block">
-                            <i class="fas fa-plus"></i> Añadir Producto
-                        </a>
-                    </div>
                     <div class="card-body">
 
                         <div class="table-responsive">
@@ -142,8 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['limpiar_pedido'])) {
                     <div class="row mt-3">
                         <div class="ml-3 ">
                             <form method="POST" action="">
-                                <button type="submit" name="limpiar_pedido"
-                                    class="btn btn-danger btn-block">Limpiar</button>
+                                <a href="./index.php" class="btn btn-success ">
+                                    <i class="fas fa-plus"></i> Añadir Producto
+                                </a>
+                                <button type="submit" name="limpiar_pedido" class="btn btn-danger ">Limpiar</button>
+
                             </form>
                         </div>
                     </div>
